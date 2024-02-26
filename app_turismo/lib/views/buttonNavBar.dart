@@ -1,4 +1,6 @@
+import 'package:app_turismo/views/container.dart';
 import 'package:app_turismo/views/draggableFavorite.dart';
+import 'package:app_turismo/views/googleMap.dart';
 import 'package:flutter/material.dart';
 
 class ButtomNavBar extends StatefulWidget {
@@ -10,35 +12,34 @@ class ButtomNavBar extends StatefulWidget {
 
 class _ButtomNavBarState extends State<ButtomNavBar> {
   int _currentIndex = 0;
-  List<Widget> body = const [
-    Icon(Icons.home),
-    Icon(Icons.favorite),
-    Icon(Icons.person),
-  ];
+  Widget currentBody = const ReturnContainer(); // Initial body
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: body[_currentIndex],
-      ),
+      body: currentBody, // Display the current body based on index
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (int newIndex) {
-          if (newIndex != 1) {
-            setState(() {
-              _currentIndex = newIndex;
-            });
-          } else {
-            favModal(context);
-          }
+          setState(() {
+            _currentIndex = newIndex;
+            switch (newIndex) {
+              case 0: // Home
+                currentBody = ReturnContainer();
+                break;
+              case 1: // Favorite
+                currentBody = favModal(context);
+                break;
+              case 2: // Profile
+                currentBody = const Icon(Icons.person);
+                break;
+            }
+          });
         },
         items: const [
           BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
           BottomNavigationBarItem(
-            label: "Favorite",
-            icon: Icon(Icons.star_border),
-          ),
+              label: "Favorite", icon: Icon(Icons.star_border)),
           BottomNavigationBarItem(label: "Profile", icon: Icon(Icons.person)),
         ],
       ),

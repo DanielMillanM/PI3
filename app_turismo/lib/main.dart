@@ -1,3 +1,4 @@
+import 'package:app_turismo/views/body.dart';
 import 'package:app_turismo/views/buttonNavBar.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
           title: const Text('BucaraUWU'),
         ),
         // cambia el widget al que se quiere poner
-        body: const ButtomNavBar(),
+        body: const BodyBuild(),
       ),
     );
   }

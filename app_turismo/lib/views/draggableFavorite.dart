@@ -1,11 +1,9 @@
+import 'package:app_turismo/main.dart';
+import 'package:app_turismo/views/body.dart';
 import 'package:flutter/material.dart';
 
-Future favModal(BuildContext context) {
-  return showModalBottomSheet(
-    isScrollControlled: true,
-    context: context,
-    builder: (BuildContext context) {
-      return DraggableScrollableSheet(
+DraggableScrollableSheet favModal(BuildContext context) {
+  return DraggableScrollableSheet(
         initialChildSize: 0.9,
         minChildSize: 0.1,
         maxChildSize: 0.9,
@@ -16,13 +14,11 @@ Future favModal(BuildContext context) {
               child: ElevatedButton(
                 child: const Text('Close'),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MyApp()));
                 },
               ),
             ),
           );
         },
       );
-    },
-  );
 }
