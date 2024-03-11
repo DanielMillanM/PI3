@@ -1,5 +1,6 @@
+// ignore_for_file: file_names
+
 import 'package:app_turismo/main.dart';
-import 'package:app_turismo/views/body.dart';
 import 'package:flutter/material.dart';
 
 DraggableScrollableSheet favModal(BuildContext context) {

@@ -1,4 +1,5 @@
-import 'package:app_turismo/views/buttonNavBar.dart';
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -55,14 +56,14 @@ class _MapScreenState extends State<MapScreen> {
                     height: 1000,
                     child: FlutterMap(
                       options: MapOptions(
-                          center: myPosition, minZoom: 5, maxZoom: 25, zoom: 5),
+                          center: myPosition, minZoom: 5, maxZoom: 25, zoom: 18),
                       nonRotatedChildren: [
                         TileLayer(
                           urlTemplate:
                               'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
                           additionalOptions: const {
                             'accessToken': MAPBOX_ACCESS_TOKEN,
-                            'id': 'mapbox/dark-v11'
+                            'id': 'mapbox/streets-v12'
                           },
                         ),
                         MarkerLayer(

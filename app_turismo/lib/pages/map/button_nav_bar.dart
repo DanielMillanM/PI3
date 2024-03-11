@@ -1,6 +1,5 @@
-import 'package:app_turismo/views/container.dart';
-import 'package:app_turismo/views/draggableFavorite.dart';
-import 'package:app_turismo/views/googleMap.dart';
+import 'package:app_turismo/pages/map/container.dart';
+import 'package:app_turismo/pages/map/draggable_favorite.dart';
 import 'package:flutter/material.dart';
 
 class ButtomNavBar extends StatefulWidget {
@@ -19,6 +18,7 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
     return Scaffold(
       body: currentBody, // Display the current body based on index
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color.fromARGB(255, 55, 58, 85),
         currentIndex: _currentIndex,
         onTap: (int newIndex) {
           setState(() {
@@ -31,16 +31,39 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
                 currentBody = favModal(context);
                 break;
               case 2: // Profile
-                currentBody = const Icon(Icons.person);
+                currentBody = const Icon(
+                  Icons.person, 
+                  color: Colors.black,
+                  );
                 break;
             }
           });
         },
+        unselectedItemColor: Colors.white,
+        fixedColor: Colors.white,
         items: const [
-          BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
           BottomNavigationBarItem(
-              label: "Favorite", icon: Icon(Icons.star_border)),
-          BottomNavigationBarItem(label: "Profile", icon: Icon(Icons.person)),
+            label: "Home", 
+            backgroundColor: Color.fromARGB(255, 255, 255, 255),
+            icon: Icon(
+              Icons.home,
+              color: Colors.white,
+            )
+          ),
+          BottomNavigationBarItem(
+            label: "Favorite",
+            icon: Icon(
+              Icons.star_border,
+              color: Colors.white,
+            )
+          ),
+          BottomNavigationBarItem(
+            label: "Profile", 
+            icon: Icon(
+              Icons.person,
+              color: Colors.white,
+            )
+          ),
         ],
       ),
     );

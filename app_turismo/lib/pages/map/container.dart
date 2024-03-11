@@ -1,4 +1,6 @@
-import 'package:app_turismo/views/googleMap.dart';
+// ignore_for_file: avoid_unnecessary_containers
+
+import 'package:app_turismo/pages/map/google_map.dart';
 import 'package:flutter/material.dart';
 
 class ReturnContainer extends StatefulWidget {

@@ -1,6 +1,5 @@
-import 'package:app_turismo/views/googleMap.dart';
+import 'package:app_turismo/pages/map/button_nav_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:app_turismo/views/buttonNavBar.dart';
 
 class BodyBuild extends StatefulWidget {
   const BodyBuild({super.key});
@@ -13,8 +12,9 @@ class _BodyBuildState extends State<BodyBuild> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: 
-          ButtomNavBar(),
+      body: SafeArea(
+        child: ButtomNavBar(),
+      ),
     );
   }
 }
