@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, avoid_print, sized_box_for_whitespace, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -50,7 +50,8 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
         body: myPosition == null
             ? const CircularProgressIndicator()
-            : Stack(
+            : Container(
+              child: Stack(
                 children: [
                   Container(
                     height: 1000,
@@ -86,6 +87,6 @@ class _MapScreenState extends State<MapScreen> {
                     ),
                   ),
                 ],
-              ));
+              )));
   }
 }

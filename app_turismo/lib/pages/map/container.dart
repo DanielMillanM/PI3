@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
 import 'package:app_turismo/pages/map/google_map.dart';
 import 'package:flutter/material.dart';

@@ -11,7 +11,7 @@ class BodyBuild extends StatefulWidget {
 class _BodyBuildState extends State<BodyBuild> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: ButtomNavBar(),
       ),

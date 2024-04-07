@@ -32,7 +32,6 @@ class MyLoginPage extends StatelessWidget {
       final data = json.decode(response.body);
       final token = data['access'];
       if (token != null) {
-        // TODO: cambiar a vista de mapa
         Navigator.pushNamed(context, "/bodyBuild");
       }
       return data['access'];
