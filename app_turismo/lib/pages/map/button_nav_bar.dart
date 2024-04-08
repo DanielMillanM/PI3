@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:app_turismo/pages/map/container.dart';
+import 'package:app_turismo/pages/favorites.dart';
 import 'package:app_turismo/pages/map/draggable_favorite.dart';
 import 'package:app_turismo/pages/map/google_map.dart';
+import 'package:app_turismo/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -18,11 +19,11 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
 
   final screens = [
     const MapScreen(),
-    const Icon(Icons.abc),
-    const Icon(Icons.ac_unit_rounded),
+    const MyFavorites(),
+    const MySettings(),
   ];
 
-  Widget currentBody = const ReturnContainer(); // Initial body
+  Widget currentBody = const MapScreen(); // Initial body
 
   @override
   Widget build(BuildContext context) {
@@ -58,47 +59,12 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
               ),
               GButton(
                 icon: Icons.settings,
-                text: 'Perfil',
+                text: 'Settings',
               ),
             ]
           )
         )
       )
-      // BottomNavigationBar(
-      //   backgroundColor: Color.fromARGB(255, 55, 58, 85),
-      //   currentIndex: _currentIndex,
-      //   onTap: (newIndex) {
-      //     setState(() {
-      //       _currentIndex = newIndex;
-      //     });
-      //   },
-      //   unselectedItemColor: Colors.white,
-      //   fixedColor: Colors.white,
-      //   items: const [
-      //     BottomNavigationBarItem(
-      //       label: "Home", 
-      //       backgroundColor: Color.fromARGB(255, 255, 255, 255),
-      //       icon: Icon(
-      //         Icons.home,
-      //         color: Colors.white,
-      //       )
-      //     ),
-      //     BottomNavigationBarItem(
-      //       label: "Favorite",
-      //       icon: Icon(
-      //         Icons.star_border,
-      //         color: Colors.white,
-      //       )
-      //     ),
-      //     BottomNavigationBarItem(
-      //       label: "Profile", 
-      //       icon: Icon(
-      //         Icons.person,
-      //         color: Colors.white,
-      //       )
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
