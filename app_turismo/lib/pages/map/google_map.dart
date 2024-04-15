@@ -23,6 +23,8 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
+
+  var token2;
   
   List<PlaceEstructure> places = [];
 
@@ -88,6 +90,7 @@ class _MapScreenState extends State<MapScreen> {
       print(token);
       if(token != null){
         fetchData(token);
+        token2 = token;
       }
     });
   }
@@ -135,7 +138,21 @@ class _MapScreenState extends State<MapScreen> {
                                   return Container(
                                     child: IconButton(
                                       onPressed: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => MyFichaPlace(id: place.id, name: place.name, history: place.history, schedule: place.schedule, link: place.link, updateFavorites: () {},)));
+                                        Navigator.push(
+                                          context, 
+                                          MaterialPageRoute(
+                                            builder: (context) => MyFichaPlace(
+                                              id: place.id, 
+                                              name: place.name, 
+                                              history: place.history, 
+                                              schedule: place.schedule, 
+                                              link: place.link, 
+                                              updateFavorites: () {
+                                                fetchData(token2);
+                                              },
+                                              )
+                                            )
+                                          );
                                       },
                                       icon: Icon(
                                         Icons.location_on,

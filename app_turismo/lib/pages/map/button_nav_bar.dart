@@ -28,10 +28,7 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _currentIndex,
-        children: screens,
-      ),
+      body: body(_currentIndex),
       bottomNavigationBar: Container(
         color: Color.fromARGB(255, 55, 58, 85),
         child: Padding(
@@ -66,5 +63,19 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
         )
       )
     );
+  }
+
+  body(_currentIndex) {
+      // Check for Page1.
+      if (_currentIndex == 1) {
+          screens.removeAt(1);
+          // Pass a UniqueKey as key to force the widget lifecycle to start over.
+          screens.insert(1, new MyFavorites(key: UniqueKey()));
+      }   
+
+      return IndexedStack(
+        index: _currentIndex,
+        children: screens,
+      );  
   }
 }

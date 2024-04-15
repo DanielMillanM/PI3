@@ -22,6 +22,7 @@ class _MyFavoritesState extends State<MyFavorites> {
   List<PlaceEstructure> favoritos = [];
 
   void fetchData(String access) async {
+    favoritos.clear();
     try {
       final response = await http
           .get(Uri.parse('http://192.168.20.20:8000/place/favorite/'),
@@ -70,53 +71,44 @@ class _MyFavoritesState extends State<MyFavorites> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(height: 20),
-              Text("Tus Favoritos", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              SizedBox(height: 20),
+        child: SingleChildScrollView(
+            
+            child: Column(
+              children: [
+                SizedBox(height: 20),
+                Text("Tus Favoritos", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                SizedBox(height: 20),
 
-              ...favoritos.map((favorito) {
-                return ListTile(
-                  leading: Icon(Icons.location_on, size: 40,),
-                  title: Text("${favorito.name}"),
-                  subtitle: Text("${favorito.history}"),
-                  trailing: Icon(Icons.star, size: 40, color: Colors.orange,),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MyFichaPlace(
-                          id: favorito.id,
-                          name: favorito.name,
-                          history: favorito.history,
-                          schedule: favorito.schedule,
-                          link: favorito.link,
-                          updateFavorites: () {
-                            // Define la función de actualización aquí
-                            fetchData(token2);
-                          },
+                ...favoritos.map((favorito) {
+                  return ListTile(
+                    leading: Icon(Icons.location_on, size: 40,),
+                    title: Text("${favorito.name}"),
+                    subtitle: Text("${favorito.history}"),
+                    trailing: Icon(Icons.star, size: 40, color: Colors.orange,),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MyFichaPlace(
+                            id: favorito.id,
+                            name: favorito.name,
+                            history: favorito.history,
+                            schedule: favorito.schedule,
+                            link: favorito.link,
+                            updateFavorites: () {
+                              fetchData(token2);
+                            },
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                );
-              }),
-              // ficha de lugar favorito
-              ListTile(
-                leading: Icon(Icons.location_on, size: 40,),
-                title: Text("Nombre Lugar"),
-                subtitle: Text("Descripción"),
-                trailing: Icon(Icons.star, size: 40,),
-                onTap: () {
-                  // llamar a la página de detalles del lugar
-                },
-              )
-            ]
-          ),
+                      );
+                    },
+                  );
+                }),
+                
+              ]
+            ),
+          )
         )
-      ),
     );
   }
 }
