@@ -7,7 +7,8 @@ class PlaceModel(models.Model):
     name = models.CharField(max_length=50)
     x = models.CharField(max_length=50)
     y = models.CharField(max_length=50)
-    history = models.CharField(max_length=100)
+    schedule = models.CharField(max_length=100)
+    history = models.CharField(max_length=255)
     link= models.CharField(max_length=300)
 
     def __str__(self):
