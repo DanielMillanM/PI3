@@ -29,7 +29,7 @@ class _MySettingsState extends State<MySettings> {
                 leading: Icon(Icons.person, size: 40,),
                 title: Text("Configuración de perfil"),
                 onTap: () {
-                  // llamar a la página de detalles del lugar
+                    Navigator.pushNamed(context, "/userconfig");
                 },
               ),
               ListTile(
@@ -37,7 +37,7 @@ class _MySettingsState extends State<MySettings> {
                 title: Text("Buzón"),
                 subtitle: Text("Reportar errores"),
                 onTap: () {
-                  // llamar a la página de detalles del lugar
+                    Navigator.pushNamed(context, "/buzon");
                 },
               ),
               ListTile(
