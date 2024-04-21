@@ -44,7 +44,7 @@ class _MySettingsState extends State<MySettings> {
                 leading: Icon(Icons.feedback, size: 40,),
                 title: Text("Quejas y sugerencias"),
                 onTap: () {
-                  // llamar a la página de detalles del lugar
+                    Navigator.pushNamed(context, "/sugerencias");
                 },
               ),
             ]

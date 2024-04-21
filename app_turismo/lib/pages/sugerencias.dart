@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class Buzon extends StatefulWidget {
-  const Buzon({Key? key});
+class Sugerencias extends StatefulWidget {
+  const Sugerencias({Key? key});
 
   @override
-  State<Buzon> createState() => _MyBuzonState();
+  State<Sugerencias> createState() => _MySugerenciasState();
 }
 
-class _MyBuzonState extends State<Buzon> {
+class _MySugerenciasState extends State<Sugerencias> {
   TextEditingController _errorController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Reportar Error"),
+        title: Text("Deja tus sugerencias"),
       ),
       body: SafeArea(
         child: Padding(
@@ -25,15 +25,14 @@ class _MyBuzonState extends State<Buzon> {
                 controller: _errorController,
                 maxLines: 4,
                 decoration: InputDecoration(
-                  labelText: 'Descripción del error',
                   border: OutlineInputBorder(),
                 ),
               ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  String error = _errorController.text;
-                  print('Error reportado: $error');
+                  String sugerencias = _errorController.text;
+                  print('Sugerencias enviadas: $sugerencias');
                   // Agregar aqui  el envio a otro lado
                   
                   _errorController.clear();
