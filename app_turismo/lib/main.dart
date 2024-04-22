@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BucaraTismo',
       debugShowCheckedModeBanner: false,
-      home: BodyBuild(),
+      home: MyMainPage(),
       routes: {
         '/main': (context) => MyMainPage(),
         '/login': (context) => MyLoginPage(),
@@ -32,8 +32,6 @@ class MyApp extends StatelessWidget {
         '/userconfig': (context) => UserConfig(),
         '/buzon': (context) => Buzon(),
         '/sugerencias': (context) => Sugerencias(),
-
-
       },
     );
   }

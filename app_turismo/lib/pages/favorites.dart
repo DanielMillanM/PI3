@@ -72,41 +72,42 @@ class _MyFavoritesState extends State<MyFavorites> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-            
-            child: Column(
-              children: [
-                SizedBox(height: 20),
-                Text("Tus Favoritos", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                SizedBox(height: 20),
+            child: Center(
+              child: Column(
+                children: [
+                  SizedBox(height: 20),
+                  Text("Tus Favoritos", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 20),
 
-                ...favoritos.map((favorito) {
-                  return ListTile(
-                    leading: Icon(Icons.location_on, size: 40,),
-                    title: Text("${favorito.name}"),
-                    subtitle: Text("${favorito.history}"),
-                    trailing: Icon(Icons.star, size: 40, color: Colors.orange,),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MyFichaPlace(
-                            id: favorito.id,
-                            name: favorito.name,
-                            history: favorito.history,
-                            schedule: favorito.schedule,
-                            link: favorito.link,
-                            updateFavorites: () {
-                              fetchData(token2);
-                            },
+                  ...favoritos.map((favorito) {
+                    return ListTile(
+                      leading: Icon(Icons.location_on, size: 40,),
+                      title: Text("${favorito.name}"),
+                      subtitle: Text("${favorito.history}"),
+                      trailing: Icon(Icons.star, size: 40, color: Colors.orange,),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyFichaPlace(
+                              id: favorito.id,
+                              name: favorito.name,
+                              history: favorito.history,
+                              schedule: favorito.schedule,
+                              link: favorito.link,
+                              updateFavorites: () {
+                                fetchData(token2);
+                              },
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  );
-                }),
-                
-              ]
-            ),
+                        );
+                      },
+                    );
+                  }),
+                  
+                ]
+              ),
+            )
           )
         )
     );

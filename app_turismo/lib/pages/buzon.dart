@@ -29,6 +29,7 @@ class _MyBuzonState extends State<Buzon> {
                   border: OutlineInputBorder(),
                 ),
               ),
+              Text("te haz encontrado con un error?, no dudes en reportarlo, por favor asegurate de enviar cosas importantes por este medio", style: TextStyle(fontSize: 15, color: Colors.grey[700]),),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {

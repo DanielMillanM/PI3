@@ -28,6 +28,7 @@ class _MySugerenciasState extends State<Sugerencias> {
                   border: OutlineInputBorder(),
                 ),
               ),
+              Text("Deja tus sugerencias de mejoras para la app", style: TextStyle(fontSize: 15, color: Colors.grey[700]),),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
