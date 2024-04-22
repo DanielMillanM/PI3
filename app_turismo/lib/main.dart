@@ -22,7 +22,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BucaraTismo',
       debugShowCheckedModeBanner: false,
+      //home: MyTerminosYCondiciones(),
       home: MyMainPage(),
+      
       routes: {
         '/main': (context) => MyMainPage(),
         '/login': (context) => MyLoginPage(),
