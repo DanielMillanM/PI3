@@ -1,7 +1,7 @@
 class CommentsEstructure {
   final String User;
   final String Comment;
-  final String rate;
+  final int rate;
 
   CommentsEstructure({
     required this.User,

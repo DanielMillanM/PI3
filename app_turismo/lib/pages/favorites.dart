@@ -54,6 +54,27 @@ class _MyFavoritesState extends State<MyFavorites> {
     }
   }
 
+  void updatefavoritos(String access, int id) async {
+    try {
+      final response = await http
+          .post(Uri.parse('http://192.168.20.20:8000/place/favorite/'),
+          headers: {
+        'Authorization': 'JWT $access'
+      },
+      body: {
+          'place_id': id.toString(),
+      },
+    );
+
+    setState(() {
+      fetchData(access);
+    });
+
+    } catch (error) {
+      print(error);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -82,26 +103,52 @@ class _MyFavoritesState extends State<MyFavorites> {
                   ...favoritos.map((favorito) {
                     return ListTile(
                       leading: Icon(Icons.location_on, size: 40,),
-                      title: Text("${favorito.name}"),
-                      subtitle: Text("${favorito.history}"),
-                      trailing: Icon(Icons.star, size: 40, color: Colors.orange,),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MyFichaPlace(
-                              id: favorito.id,
-                              name: favorito.name,
-                              history: favorito.history,
-                              schedule: favorito.schedule,
-                              link: favorito.link,
-                              updateFavorites: () {
-                                fetchData(token2);
-                              },
+                      title: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MyFichaPlace(
+                                id: favorito.id,
+                                name: favorito.name,
+                                history: favorito.history,
+                                schedule: favorito.schedule,
+                                link: favorito.link,
+                                updateFavorites: () {
+                                  fetchData(token2);
+                                },
+                              ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                        child: Text("${favorito.name}"),
+                      ),
+                      subtitle: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MyFichaPlace(
+                                id: favorito.id,
+                                name: favorito.name,
+                                history: favorito.history,
+                                schedule: favorito.schedule,
+                                link: favorito.link,
+                                updateFavorites: () {
+                                  fetchData(token2);
+                                },
+                              ),
+                            ),
+                          );
+                        },
+                        child: Text("${favorito.history}"),
+                      ),
+                      trailing:  InkWell(
+                        onTap: () {
+                          updatefavoritos(token2, favorito.id);
+                        },
+                        child: Icon(Icons.star, size: 40, color: Colors.orange,),
+                      ),
                     );
                   }),
                   
