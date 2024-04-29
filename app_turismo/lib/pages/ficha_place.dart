@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_const, unused_local_variable
+
 import 'dart:convert';
 
 import 'package:app_turismo/estructures/comment_estructure.dart';
@@ -93,7 +95,19 @@ class _FichaPlaceState extends State<MyFichaPlace> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.name),
+        backgroundColor: Color.fromARGB(255, 81, 90, 170),
+        // icon arrow back color white
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+            size: 35,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(widget.name, style: TextStyle(color: Colors.white)),
         actions: [
           IconButton(
             onPressed: () {
@@ -112,17 +126,18 @@ class _FichaPlaceState extends State<MyFichaPlace> {
         child: Center(
           child: Column(
             children: [
+              SizedBox(height: 10),
               Image.network(
                 widget.link,
                 height: screenHeight * 0.2,
               ),
               Container(
-                margin: const EdgeInsets.only(top: 20),
+                margin: const EdgeInsets.only(top: 10),
                 padding: const EdgeInsets.only(top: 20),
                 width: double.infinity,
                 height: screenHeight * 0.66,
-                decoration: BoxDecoration(
-                  color: Colors.grey,
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 81, 90, 170),
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(40),
                     topRight: Radius.circular(40),
@@ -137,6 +152,7 @@ class _FichaPlaceState extends State<MyFichaPlace> {
                         style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -144,6 +160,7 @@ class _FichaPlaceState extends State<MyFichaPlace> {
                       Text(
                         widget.history,
                         textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white),
                       ),
                       SizedBox(height: 16.0),
                       const Text(
@@ -151,6 +168,7 @@ class _FichaPlaceState extends State<MyFichaPlace> {
                         style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -158,21 +176,22 @@ class _FichaPlaceState extends State<MyFichaPlace> {
                       Text(
                         widget.schedule,
                         textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white),
                       ),
                       const SizedBox(height: 16.0),
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.comment),
+                          Icon(Icons.comment, color: Colors.white),
                           SizedBox(width: 8.0),
-                          Text('Comentarios'),
+                          Text('Comentarios', style: TextStyle(color: Colors.white),),
                         ],
                       ),
                       const SizedBox(height: 16.0),
                       //espacio de comentario con rating
                       ListTile(
                         leading: SizedBox(
-                          width: 40, // ajusta este tamaño según tus necesidades
+                          width: 60, // ajusta este tamaño según tus necesidades
                           child: DropdownButtonFormField<int>(
                             value: rating,
                             onChanged: (newValue) {
@@ -186,20 +205,49 @@ class _FichaPlaceState extends State<MyFichaPlace> {
                                 child: Text('${index + 1}'),
                               );
                             }),
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              fillColor: Colors.white,
+                              filled: true,
+                              isDense: true,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.deepPurple),
+                                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                              ),
+                            ),
                           ),
                         ),
                         title: TextField(
                           controller: commentController,
                           decoration: const InputDecoration(
                             hintText: 'Escribe un comentario',
+                            border: InputBorder.none,
+                            fillColor: Colors.white,
+                            filled: true,
+                            isDense: true,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.deepPurple),
+                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                            ),
                           ),
                         ),
-                        trailing: ElevatedButton(
-                          onPressed: () {
-                            // Lógica para enviar comentario y calificación
-                          },
-                          child: const Text('Enviar'),
-                        ),
+                        trailing: SizedBox(
+                          width: 80.0,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Lógica para enviar comentario y calificación
+                            },
+                            child: const Text('Enviar', style: TextStyle(fontSize: 10),),
+                          ),
+                        ),  
                       ),
 
                       const Divider(thickness: 4,),
@@ -212,7 +260,7 @@ class _FichaPlaceState extends State<MyFichaPlace> {
                               child: ListTile(
                                 title: Text(comments[index].User),
                                 subtitle: Text(comments[index].Comment),
-                                trailing: Text(comments[index].rate.toString()),
+                                trailing: Text(comments[index].rate.toString(), style: TextStyle(fontSize: 20),),
                               ),
                             );
                           },

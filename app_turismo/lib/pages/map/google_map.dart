@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:app_turismo/estructures/place_estructure.dart';
 import 'package:app_turismo/pages/ficha_place.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -27,6 +28,8 @@ class _MapScreenState extends State<MapScreen> {
   var token2;
   
   List<PlaceEstructure> places = [];
+
+  List<String> placesName = [];
 
   LatLng? myPosition;
 
@@ -102,6 +105,7 @@ class _MapScreenState extends State<MapScreen> {
             ? Center(child: const CircularProgressIndicator())
             : Container(
               child: Stack(
+                alignment: Alignment.topCenter,
                 children: [
                   Container(
                     height: 1000,
@@ -170,6 +174,18 @@ class _MapScreenState extends State<MapScreen> {
                       ],
                     ),
                   ),
+                  Container(
+                    height: 50,
+                    width: 350,
+                    margin: EdgeInsets.only(top: 10),
+                    child: CupertinoSearchTextField(
+                      backgroundColor: Colors.white,
+                      autocorrect: true,
+                      onSubmitted: (value) {
+                        myPosition = LatLng(0, 0);
+                      },
+                    )
+                  )
                 ],
               )));
   }
