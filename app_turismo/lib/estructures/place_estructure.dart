@@ -6,6 +6,7 @@ class PlaceEstructure {
   final String schedule;
   final String history;
   final String link;
+  final String tag;
 
   PlaceEstructure({
     required this.id,
@@ -15,5 +16,6 @@ class PlaceEstructure {
     required this.schedule,
     required this.history,
     required this.link,
+    required this.tag
   });
 }

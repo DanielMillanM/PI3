@@ -2,8 +2,8 @@ from django.shortcuts import get_object_or_404, render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from PlaceApp.serializer import FavoritePlaceSerializer, PlaceSerializer
-from .models import FavoritePlace, PlaceModel
+from PlaceApp.serializer import FavoritePlaceSerializer, PlaceSerializer, PlaceTagSerializer
+from .models import FavoritePlace, PlaceModel, PlaceANDTag
 from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
 
 
@@ -15,9 +15,9 @@ class PlaceView(APIView):
     
     def get(self, request):
         
-        places = PlaceModel.objects.all()
+        places = PlaceANDTag.objects.all()
         
-        serializer = PlaceSerializer(places, many=True)
+        serializer = PlaceTagSerializer(places, many=True)
         
         return Response(serializer.data)
 

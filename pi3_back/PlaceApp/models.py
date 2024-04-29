@@ -32,7 +32,7 @@ class PlaceANDTag(models.Model):
     
     def __str__(self):
 
-        return (self.place, self.tag)
+        return ("{} + {}".format(self.place, self.tag))
 
 class FavoritePlace(models.Model):
 

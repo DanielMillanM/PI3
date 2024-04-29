@@ -15,6 +15,7 @@ class MyFichaPlace extends StatefulWidget {
   final String schedule;
   final String history;
   final String link;
+  final String tag;
 
   const MyFichaPlace({
     Key? key,
@@ -24,6 +25,7 @@ class MyFichaPlace extends StatefulWidget {
     required this.schedule,
     required this.history,
     required this.link,
+    required this.tag,
   }) : super(key: key);
 
   @override
@@ -33,7 +35,7 @@ class MyFichaPlace extends StatefulWidget {
 class _FichaPlaceState extends State<MyFichaPlace> {
   String? token;
   final commentController = TextEditingController();
-  int? rating;
+  int rating = 1;
   List <CommentsEstructure> comments = [];
 
   @override
@@ -83,6 +85,34 @@ class _FichaPlaceState extends State<MyFichaPlace> {
         setState(() {
           comments.add(commentObj);
         });
+      });
+    } catch (error) {
+      print(error);
+    }
+  }
+
+  // Método para realizar un comentario
+  void comentar(String access, int rating, String desc) async {
+    try {
+      final response = await http.post(
+        Uri.parse('http://192.168.20.20:8000/comment/comments/${widget.id}/'),
+        headers: {'Authorization': 'JWT $access'},
+        body: {
+          'comment': desc,
+          'rate': rating.toString()
+        },
+      );
+
+      final data = json.decode(response.body);
+      print(data);
+
+      data.forEach((place) {
+        final commentObj = CommentsEstructure(
+          User: place['name'],
+          Comment: place['desc'],
+          rate: place['rate'],
+        );
+        setState(() {});
       });
     } catch (error) {
       print(error);
@@ -244,6 +274,11 @@ class _FichaPlaceState extends State<MyFichaPlace> {
                           child: ElevatedButton(
                             onPressed: () {
                               // Lógica para enviar comentario y calificación
+                              comentar(
+                                token.toString(), 
+                                rating, 
+                                commentController.text
+                              );
                             },
                             child: const Text('Enviar', style: TextStyle(fontSize: 10),),
                           ),

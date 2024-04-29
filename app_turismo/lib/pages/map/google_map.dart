@@ -45,13 +45,14 @@ class _MapScreenState extends State<MapScreen> {
     print(data);
     data.forEach((user) {
       final place = PlaceEstructure(
-        id: user['id'],
+        id: user['placeId'],
         name: user['name'],
         x: double.parse(user['x']),
         y: double.parse(user['y']),
         schedule: user['schedule'],
         history: user['history'],
         link: user['link'],
+        tag: user['tagName'],
       );
       places.add(place);
     });
@@ -151,6 +152,7 @@ class _MapScreenState extends State<MapScreen> {
                                               history: place.history, 
                                               schedule: place.schedule, 
                                               link: place.link, 
+                                              tag: place.tag,
                                               updateFavorites: () {
                                                 fetchData(token2);
                                               },

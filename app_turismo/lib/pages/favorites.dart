@@ -42,6 +42,7 @@ class _MyFavoritesState extends State<MyFavorites> {
         schedule: placeData['schedule'],
         history: placeData['history'],
         link: placeData['link'],
+        tag: placeData['link'],
       );
       favoritos.add(placeObj);
     });
@@ -114,6 +115,7 @@ class _MyFavoritesState extends State<MyFavorites> {
                                 history: favorito.history,
                                 schedule: favorito.schedule,
                                 link: favorito.link,
+                                tag: favorito.tag,
                                 updateFavorites: () {
                                   fetchData(token2);
                                 },
@@ -134,6 +136,7 @@ class _MyFavoritesState extends State<MyFavorites> {
                                 history: favorito.history,
                                 schedule: favorito.schedule,
                                 link: favorito.link,
+                                tag: favorito.tag,
                                 updateFavorites: () {
                                   fetchData(token2);
                                 },
