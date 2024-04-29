@@ -19,13 +19,6 @@ class _MySettingsState extends State<MySettings> {
               Text("Configuración", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               SizedBox(height: 20),
               ListTile(
-                leading: Icon(Icons.settings, size: 40,),
-                title: Text("Opciones"),
-                onTap: () {
-                  // llamar a la página de detalles del lugar
-                },
-              ),
-              ListTile(
                 leading: Icon(Icons.person, size: 40,),
                 title: Text("Configuración de perfil"),
                 onTap: () {

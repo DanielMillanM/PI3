@@ -41,6 +41,7 @@ dependencies:
   http: ^0.13.6
   google_nav_bar: ^5.0.6
   shared_preferences: ^2.2.3
+  insta_image_viewer: ^1.0.4
 
 dev_dependencies:
   flutter_test:

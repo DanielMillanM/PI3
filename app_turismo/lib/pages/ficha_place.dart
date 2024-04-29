@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:insta_image_viewer/insta_image_viewer.dart';
 
 class MyFichaPlace extends StatefulWidget {
   final Function() updateFavorites;
@@ -157,9 +158,15 @@ class _FichaPlaceState extends State<MyFichaPlace> {
           child: Column(
             children: [
               SizedBox(height: 10),
-              Image.network(
-                widget.link,
-                height: screenHeight * 0.2,
+              InstaImageViewer(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(
+                    widget.link,
+                    height: screenHeight * 0.2,
+                    fit: BoxFit.fitWidth,
+                  )
+                ),
               ),
               Container(
                 margin: const EdgeInsets.only(top: 10),
