@@ -11,6 +11,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:easy_search_bar/easy_search_bar.dart';
 
 // ignore: constant_identifier_names
 const MAPBOX_ACCESS_TOKEN =
@@ -29,7 +30,6 @@ class _MapScreenState extends State<MapScreen> {
   
   List<PlaceEstructure> places = [];
 
-  List<String> placesName = [];
 
   LatLng? myPosition;
 
@@ -177,14 +177,35 @@ class _MapScreenState extends State<MapScreen> {
                     ),
                   ),
                   Container(
-                    height: 50,
+                    height: 60,
                     width: 350,
                     margin: EdgeInsets.only(top: 10),
-                    child: CupertinoSearchTextField(
+                    child: EasySearchBar(
                       backgroundColor: Colors.white,
-                      autocorrect: true,
-                      onSubmitted: (value) {
-                        myPosition = LatLng(0, 0);
+                      appBarHeight: 100,
+                      title: Text("Buscar lugar"),
+                      suggestions: places.map((place) => place.name).toList(),
+                      onSearch: (value) {
+                        print(value);
+                      },
+                      onSuggestionTap: (value) {
+                        final selectedPlace = places.firstWhere((place) => place.name == value);
+                        Navigator.push(
+                        context, 
+                        MaterialPageRoute(
+                          builder: (context) => MyFichaPlace(
+                            id: selectedPlace.id, 
+                            name: selectedPlace.name, 
+                            history: selectedPlace.history, 
+                            schedule: selectedPlace.schedule, 
+                            link: selectedPlace.link, 
+                            tag: selectedPlace.tag,
+                              updateFavorites: () {
+                                fetchData(token2);
+                              },
+                            )
+                          )
+                        );
                       },
                     )
                   )
