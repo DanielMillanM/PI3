@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:app_turismo/pages/favorites.dart';
-import 'package:app_turismo/pages/map/draggable_favorite.dart';
 import 'package:app_turismo/pages/map/google_map.dart';
 import 'package:app_turismo/pages/settings.dart';
 import 'package:flutter/material.dart';

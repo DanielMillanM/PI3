@@ -215,6 +215,22 @@ class _FichaPlaceState extends State<MyFichaPlace> {
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
+                      SizedBox(height: 16.0),
+                      const Text(
+                        'Etiquetas:',
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: 8.0),
+                      Text(
+                        widget.tag,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white),
+                      ),
                       const SizedBox(height: 16.0),
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.center,

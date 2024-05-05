@@ -13,7 +13,7 @@ class _MyWidgetState extends State<HomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'BucaraUWU',
+      title: 'BucaraTismo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
