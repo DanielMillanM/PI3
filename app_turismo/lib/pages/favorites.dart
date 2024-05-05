@@ -25,7 +25,7 @@ class _MyFavoritesState extends State<MyFavorites> {
     favoritos.clear();
     try {
       final response = await http
-          .get(Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-4001.app.github.dev/place/favorite/'),
+          .get(Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-8000.app.github.dev/place/favorite/'),
           headers: {
         'Authorization': 'JWT $access'
       },);
@@ -42,7 +42,7 @@ class _MyFavoritesState extends State<MyFavorites> {
         schedule: placeData['schedule'],
         history: placeData['history'],
         link: placeData['link'],
-        tag: placeData['link'],
+        tag: placeData['name'],
       );
       favoritos.add(placeObj);
     });
@@ -58,7 +58,7 @@ class _MyFavoritesState extends State<MyFavorites> {
   void updatefavoritos(String access, int id) async {
     try {
       final response = await http
-          .post(Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-4001.app.github.dev/place/favorite/'),
+          .post(Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-8000.app.github.dev/place/favorite/'),
           headers: {
         'Authorization': 'JWT $access'
       },

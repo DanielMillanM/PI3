@@ -56,7 +56,7 @@ class _FichaPlaceState extends State<MyFichaPlace> {
   void fetchData(String? access) async {
     try {
       final response = await http.post(
-        Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-4001.app.github.dev/place/favorite/'),
+        Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-8000.app.github.dev/place/favorite/'),
         headers: {'Authorization': 'JWT $access'},
         body: {'place_id': widget.id.toString()},
       );
@@ -70,7 +70,7 @@ class _FichaPlaceState extends State<MyFichaPlace> {
   void comentarios(String? access) async {
     try {
       final response = await http.get(
-        Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-4001.app.github.dev/comment/comments/${widget.id}'),
+        Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-8000.app.github.dev/comment/comments/${widget.id}'),
         headers: {'Authorization': 'JWT $access'},
       );
 
@@ -96,7 +96,7 @@ class _FichaPlaceState extends State<MyFichaPlace> {
   void comentar(String access, int rating, String desc) async {
     try {
       final response = await http.post(
-        Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-4001.app.github.dev/comment/comments/${widget.id}/'),
+        Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-8000.app.github.dev/comment/comments/${widget.id}/'),
         headers: {'Authorization': 'JWT $access'},
         body: {
           'comment': desc,
@@ -215,22 +215,7 @@ class _FichaPlaceState extends State<MyFichaPlace> {
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
-                      SizedBox(height: 16.0),
-                      const Text(
-                        'Etiquetas:',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(height: 8.0),
-                      Text(
-                        widget.tag,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white),
-                      ),
+                      
                       const SizedBox(height: 16.0),
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.center,

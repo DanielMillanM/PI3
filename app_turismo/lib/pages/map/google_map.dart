@@ -36,7 +36,7 @@ class _MapScreenState extends State<MapScreen> {
   void fetchData(String access) async {
     try {
       final response = await http
-          .get(Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-4001.app.github.dev/place/places/'),
+          .get(Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-8000.app.github.dev/place/places/'),
           headers: {
         'Authorization': 'JWT $access'
       },);
