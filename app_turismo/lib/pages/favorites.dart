@@ -25,7 +25,7 @@ class _MyFavoritesState extends State<MyFavorites> {
     favoritos.clear();
     try {
       final response = await http
-          .get(Uri.parse('http://192.168.20.20:8000/place/favorite/'),
+          .get(Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-4001.app.github.dev/place/favorite/'),
           headers: {
         'Authorization': 'JWT $access'
       },);
@@ -58,7 +58,7 @@ class _MyFavoritesState extends State<MyFavorites> {
   void updatefavoritos(String access, int id) async {
     try {
       final response = await http
-          .post(Uri.parse('http://192.168.20.20:8000/place/favorite/'),
+          .post(Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-4001.app.github.dev/place/favorite/'),
           headers: {
         'Authorization': 'JWT $access'
       },

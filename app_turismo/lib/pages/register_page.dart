@@ -35,7 +35,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
       };
       
       final response = await http.post(
-        Uri.parse('http://192.168.20.20:8000/usuario/register/'),
+        Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-4001.app.github.dev/usuario/register/'),
         headers: <String, String>{
           'Content-Type': 'application/json',
         },

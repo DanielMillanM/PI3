@@ -56,7 +56,7 @@ class _FichaPlaceState extends State<MyFichaPlace> {
   void fetchData(String? access) async {
     try {
       final response = await http.post(
-        Uri.parse('http://192.168.20.20:8000/place/favorite/'),
+        Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-4001.app.github.dev/place/favorite/'),
         headers: {'Authorization': 'JWT $access'},
         body: {'place_id': widget.id.toString()},
       );
@@ -70,7 +70,7 @@ class _FichaPlaceState extends State<MyFichaPlace> {
   void comentarios(String? access) async {
     try {
       final response = await http.get(
-        Uri.parse('http://192.168.20.20:8000/comment/comments/${widget.id}'),
+        Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-4001.app.github.dev/comment/comments/${widget.id}'),
         headers: {'Authorization': 'JWT $access'},
       );
 
@@ -96,7 +96,7 @@ class _FichaPlaceState extends State<MyFichaPlace> {
   void comentar(String access, int rating, String desc) async {
     try {
       final response = await http.post(
-        Uri.parse('http://192.168.20.20:8000/comment/comments/${widget.id}/'),
+        Uri.parse('https://psychic-halibut-qxgqvqgqxx5244pw-4001.app.github.dev/comment/comments/${widget.id}/'),
         headers: {'Authorization': 'JWT $access'},
         body: {
           'comment': desc,
