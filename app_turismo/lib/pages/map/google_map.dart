@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, avoid_print, sized_box_for_whitespace, avoid_unnecessary_containers
+// ignore_for_file: file_names, avoid_print, sized_box_for_whitespace, avoid_unnecessary_containers, unnecessary_import, prefer_typing_uninitialized_variables, prefer_const_constructors
 
 import 'dart:convert';
 

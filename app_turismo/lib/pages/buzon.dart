@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_final_fields, prefer_const_constructors, avoid_print
+
 import 'package:flutter/material.dart';
 
 class Buzon extends StatefulWidget {

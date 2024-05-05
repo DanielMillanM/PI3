@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, no_leading_underscores_for_local_identifiers, unnecessary_new
 
 import 'package:app_turismo/pages/favorites.dart';
 import 'package:app_turismo/pages/map/google_map.dart';
